@@ -1,97 +1,117 @@
 # 🕉️ GITA ADVISOR — KARMAN-EVADHIKAARSTHE
 
-**उद्धरेदात्मनात्मानम् — "Elevate yourself through the Self alone."**
+> उद्धरेदात्मनात्मानम् — *"Elevate yourself through the Self alone."*  
+> — Bhagavad Gita 6.5
 
-GITA ADVISOR is an offline, AI-powered Bhagavad Gita guidance system built with Python and a locally running Large Language Model (LLM) using Ollama and Mistral.
+GITA ADVISOR is an AI-powered Bhagavad Gita guidance system built with Python. The project explores two approaches to building domain-specific conversational AI:
 
-The project explores how domain-specific AI assistants can provide structured guidance while maintaining conversational memory, persistent journaling, and complete user privacy.
+1. **Offline Version** – Powered by Ollama and Mistral, completely free and runs locally.
+2. **Claude API Version** – Powered by Anthropic's Claude models for faster responses and improved contextual understanding.
 
----
-
-## ✨ Features
-
-* 🕉️ **Bhagavad Gita-Centric Guidance**
-
-  * Responses are constrained to Bhagavad Gita principles and dharma-based advice.
-  * Structured outputs containing:
-
-    * Relevant Sloka
-    * Meaning
-    * Practical guidance
-
-* 🧠 **Persistent Memory**
-
-  * Remembers previous exchanges across sessions.
-  * Loads recent conversations to provide context-aware responses.
-
-* 📖 **Automatic Journaling**
-
-  * Saves conversations in a human-readable journal.
-  * Maintains a record of situations and generated guidance.
-
-* 🔒 **Completely Offline**
-
-  * Runs entirely on your local machine.
-  * No API keys.
-  * No internet connection required.
-  * No subscription costs.
-
-* 💻 **Interactive CLI Interface**
-
-  * Session history
-  * Journal location lookup
-  * Screen clearing while preserving memory
-  * Graceful save and exit functionality
+Both implementations provide structured Bhagavad Gita-inspired guidance, persistent memory, and automatic journaling.
 
 ---
 
-## 🏗️ Project Architecture
+# ✨ Features
+
+- 🕉️ Bhagavad Gita-centric responses
+- 🧠 Persistent memory across sessions
+- 📖 Automatic journaling of conversations
+- 💬 Session history commands
+- 🔒 Privacy-focused design
+- 📝 Structured responses containing:
+  - Relevant Sloka
+  - Meaning
+  - Dharma for the situation
+- 💻 Command-line interface
+- ⚡ Two implementations:
+  - Offline (Ollama + Mistral)
+  - Cloud (Claude API)
+
+---
+
+# 🏗️ Project Architecture
 
 ```text
-User Situation
-       ↓
-Session Context + Past Memory
-       ↓
-System Prompt (Bhagavad Gita Constraints)
-       ↓
-Local Mistral Model via Ollama
-       ↓
-Structured Dharma-Based Response
-       ↓
-Journal + Persistent Memory Storage
+                User Situation
+                       ↓
+        Session Context + Past Memory
+                       ↓
+              System Prompt
+                       ↓
+              Language Model
+          ┌───────────────────┐
+          │  Ollama + Mistral │
+          │        OR         │
+          │   Claude API      │
+          └───────────────────┘
+                       ↓
+          Structured Dharma Guidance
+                       ↓
+         Journal + Persistent Memory
 ```
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
-* Python
-* Ollama
-* Mistral LLM
-* JSON
-* Text File Persistence
-* Object-Oriented and Modular Programming Concepts
+- Python
+- Ollama
+- Mistral LLM
+- Anthropic Claude API
+- JSON
+- File Handling
+- Prompt Engineering
+- Context Management
+- Persistent Memory System
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
-gita_advisor.py
-gita_memory.json
-gita_journal.txt
-README.md
+Gita-advisor/
+│
+├── offline/
+│   └── gita_advisor_ollama.py
+│
+├── claude/
+│   └── gita_advisor_claude.py
+│
+├── README.md
+├── .gitignore
+└── screenshots/
 ```
 
 ---
 
-## 🚀 Setup
+# 🚀 Offline Version (Ollama + Mistral)
+
+## Requirements
+
+### Software
+- Python 3.9+
+- Ollama
+
+### Hardware (Minimum)
+- CPU: Dual-core processor
+- RAM: 8 GB
+- Storage: 5 GB free space
+
+### Recommended
+- CPU: Intel i5 / Ryzen 5 or better
+- RAM: 16 GB+
+- SSD storage
+
+---
+
+## Installation
 
 ### 1. Install Ollama
 
 https://ollama.ai/download
 
-### 2. Pull the Mistral Model
+### 2. Pull Mistral Model
 
 ```bash
 ollama pull mistral
@@ -109,91 +129,152 @@ pip install ollama
 ollama serve
 ```
 
-### 5. Run the Application
+### 5. Run Application
 
 ```bash
-python gita_advisor.py
+python offline/gita_advisor_ollama.py
 ```
 
 ---
 
-## 📋 Requirements
+# ☁️ Claude API Version
 
-### Operating System
+## Requirements
 
-* Windows 10/11, Linux, or macOS
+### Software
+- Python 3.9+
 
-### Python
+### Hardware
+- CPU: Dual-core processor
+- RAM: 4 GB minimum
+- RAM: 8 GB recommended
 
-* Python 3.9 or higher
-
-### Hardware (Minimum)
-
-* CPU: Dual-core processor (Intel i3/Ryzen 3 equivalent)
-* RAM: 8 GB
-* Storage: At least 5 GB of free space (for Ollama, models, and project files)
-
-### Recommended Hardware
-
-* CPU: Quad-core processor (Intel i5/Ryzen 5 or better)
-* RAM: 16 GB or higher
-* Storage: SSD with 10 GB or more free space
-
-### Large Language Model
-
-* Ollama installed and running
-* Mistral model downloaded locally:
-
-```bash
-ollama pull mistral
-```
-
-### Python Dependencies
-
-```bash
-pip install ollama
-```
-
-### Performance Notes
-
-* Runs completely offline after setup.
-* No API keys or internet connection are required during usage.
-* Response speed depends on your hardware and selected model.
-* Systems with 16 GB RAM generally provide a smoother experience when running local LLMs.
-
-
-## 📋 Available Commands
-
-| Command | Description                          |
-| ------- | ------------------------------------ |
-| history | View session exchanges               |
-| journal | Show journal file location           |
-| clear   | Clear screen while preserving memory |
-| quit    | Save and exit                        |
+### Other Requirements
+- Internet connection
+- Anthropic API key
 
 ---
 
-## 🎯 Learning Objectives
+## Installation
+
+### Install Dependency
+
+```bash
+pip install anthropic
+```
+
+### Set API Key
+
+#### Windows PowerShell
+
+```powershell
+$env:ANTHROPIC_API_KEY="your_api_key_here"
+```
+
+#### Linux/macOS
+
+```bash
+export ANTHROPIC_API_KEY="your_api_key_here"
+```
+
+You can also enter the API key manually when prompted.
+
+### Run Application
+
+```bash
+python claude/gita_advisor_claude.py
+```
+
+---
+
+# 📋 Available Commands
+
+| Command | Description |
+|---------|-------------|
+| history | View session exchanges |
+| journal | Show journal file location |
+| clear | Clear screen while preserving memory |
+| quit | Save memory and exit |
+
+---
+
+# 🔒 Security
+
+This project does not store API keys in source code.
+
+Claude API keys are loaded from:
+
+1. Environment variables
+2. Manual runtime input
+
+Sensitive files should not be committed to GitHub.
+
+---
+
+# .gitignore
+
+```gitignore
+gita_journal.txt
+gita_memory.json
+.env
+```
+
+---
+
+# 🎯 Learning Objectives
 
 This project was built to explore:
 
-* Local LLM integration
-* Prompt engineering
-* Persistent memory systems
-* Context-aware AI applications
-* Domain-constrained conversational agents
-* Offline-first AI systems
-* AI application architecture using Python
+- Local LLM integration
+- Cloud-based AI APIs
+- Prompt engineering
+- Domain-constrained conversational agents
+- Persistent memory systems
+- Context-aware AI applications
+- Offline-first AI systems
+- AI application architecture in Python
 
 ---
 
-## ⚠️ Disclaimer
+# ⚠️ Disclaimer
 
-This project is an educational and experimental AI application that explores domain-specific guidance systems inspired by the Bhagavad Gita. Responses are generated by a local language model and should not be considered professional, medical, legal, or psychological advice.
+This project is an educational and experimental AI application inspired by the teachings of the Bhagavad Gita.
+
+Responses are generated by language models and should not be considered medical, legal, psychological, or professional advice.
 
 ---
 
-**Built with Python, Ollama, and Mistral.**
+# 🌟 Project Evolution
 
-**"You have a right to action alone, never to its fruits."**
-— Bhagavad Gita 2.47
+**Version 1**
+- Ollama + Mistral
+- Completely offline
+- Free forever
+- Local inference
+
+**Version 2**
+- Anthropic Claude API
+- Improved contextual understanding
+- Faster responses
+- Cloud-based inference
+
+The goal of this project is not to determine which approach is "better," but to understand the trade-offs between local and cloud-based AI systems while preserving the same product philosophy:
+
+> Dharma-focused guidance, memory, privacy, and structured conversations.
+
+---
+
+# 🙏 Acknowledgements
+
+- Bhagavad Gita
+- Ollama
+- Mistral AI
+- Anthropic Claude
+- Python Community
+
+---
+
+> कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।
+> *"You have a right to action alone, never to its fruits."*
+>
+> — Bhagavad Gita 2.47
