@@ -117,6 +117,51 @@ python gita_advisor.py
 
 ---
 
+## 📋 Requirements
+
+### Operating System
+
+* Windows 10/11, Linux, or macOS
+
+### Python
+
+* Python 3.9 or higher
+
+### Hardware (Minimum)
+
+* CPU: Dual-core processor (Intel i3/Ryzen 3 equivalent)
+* RAM: 8 GB
+* Storage: At least 5 GB of free space (for Ollama, models, and project files)
+
+### Recommended Hardware
+
+* CPU: Quad-core processor (Intel i5/Ryzen 5 or better)
+* RAM: 16 GB or higher
+* Storage: SSD with 10 GB or more free space
+
+### Large Language Model
+
+* Ollama installed and running
+* Mistral model downloaded locally:
+
+```bash
+ollama pull mistral
+```
+
+### Python Dependencies
+
+```bash
+pip install ollama
+```
+
+### Performance Notes
+
+* Runs completely offline after setup.
+* No API keys or internet connection are required during usage.
+* Response speed depends on your hardware and selected model.
+* Systems with 16 GB RAM generally provide a smoother experience when running local LLMs.
+
+
 ## 📋 Available Commands
 
 | Command | Description                          |
